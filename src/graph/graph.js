@@ -7,7 +7,7 @@ import {
         return (
             <div>
             <BarChart
-              width={500}
+              width={600}
               height={300}
               data={props.data}
               margin={{
@@ -19,8 +19,8 @@ import {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Bar dataKey={parseInt(props.data.height)} fill="#8884d8" />
-              <Bar dataKey={parseInt(props.data.mass)} fill="#82ca9d" />
+              <Bar dataKey="mass" fill="#8884d8" />
+              <Bar dataKey="height" fill="#82ca9d" />
             </BarChart>
             </div>
           );}
