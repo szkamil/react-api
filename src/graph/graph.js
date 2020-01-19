@@ -20,12 +20,11 @@ componentDidMount() {
             })
         })
 }
+
+
     render(){
         return (
             <div>
-                <div>
-                <p>{this.state.character.birth_year}</p>
-                </div>
             <BarChart
               width={500}
               height={300}

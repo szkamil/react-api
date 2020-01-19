@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import Graph from './graph/graph.js'
+import api from './graph/data.js'
 
 // https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch
 // https://swapi.co/
@@ -11,23 +12,35 @@ class App extends Component {
         this.state = {
             character: {}
         }
+      //  this.renderGraph = this.renderGraph.bind(this)
     }
     
-    componentDidMount() {
-        fetch("https://swapi.co/api/people/1")
-            .then(response => response.json())
-            .then(data => {
-                this.setState({
-                    character: data
-                })
-            })
+    
+    // componentDidMount() {
+    //     fetch("https://swapi.co/api/people")
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             this.setState({
+    //                 character: data
+    //             })
+    //         })
+    //    //     this.renderGraph()
+    // }
+
+    componentDidMount(){
+      this.setState({
+        character: api
+      })
+
     }
     
     render() {
+      console.log("results")
+      const apidata = api.map(x => x.name)
+      console.log(apidata)
         return (
             <div>
-                {this.state.character.name}
-                <Graph/>
+              <Graph/>
             </div>
         )
     }
