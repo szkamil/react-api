@@ -36,11 +36,13 @@ class App extends Component {
     
     render() {
       console.log("results")
-      const apidata = api.map(x => x.name)
-      console.log(apidata)
+      const name = api.map(x => x.name)
+      const height = api.map(x => x.height)
+      console.log("NAME: " + name)
+      console.log("HH: " + height)
         return (
             <div>
-              <Graph/>
+              <Graph data= {api}/>
             </div>
         )
     }

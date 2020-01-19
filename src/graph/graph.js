@@ -2,33 +2,14 @@ import React, {Component} from "react"
 import {
     BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
   } from 'recharts';
-class Graph extends Component{
-constructor(){
-    super();
-    this.state = {
-        character:{}
 
-    }}
-
-
-componentDidMount() {
-    fetch("https://swapi.co/api/people/1")
-        .then(response => response.json())
-        .then(data => {
-            this.setState({
-                character: data
-            })
-        })
-}
-
-
-    render(){
+ function graph(props){
         return (
             <div>
             <BarChart
               width={500}
               height={300}
-              data={this.state.data}
+              data={props.data}
               margin={{
                 top: 5, right: 30, left: 20, bottom: 5,
               }}
@@ -38,14 +19,14 @@ componentDidMount() {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Bar dataKey="pv" fill="#8884d8" />
-              <Bar dataKey="uv" fill="#82ca9d" />
+              <Bar dataKey={parseInt(props.data.height)} fill="#8884d8" />
+              <Bar dataKey={parseInt(props.data.mass)} fill="#82ca9d" />
             </BarChart>
             </div>
           );}
-}
 
-export default Graph;
+
+export default graph;
 ///======================m 'recharts';
 
 // const data = [
